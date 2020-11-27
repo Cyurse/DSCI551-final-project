@@ -1,0 +1,318 @@
+<HTML>
+<HEAD>
+<style type="text/css">
+html {
+  scroll-behavior: smooth;
+}
+table {
+  border-collapse: collapse;
+  width: 500px;
+  margin:auto
+}
+
+th,td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 8px;
+}
+.red-star {
+    color: red;
+}
+img{
+	height:70px;
+	width: 200px;
+	vertical-align:sub;
+}
+.center{
+	text-align: center;
+	font-size: 40px;
+    margin-bottom: 0px;
+}
+.card {
+  width: 800px;
+  margin-left: auto;
+  margin-right:auto;
+  margin-bottom: 5px;
+  border: 1px solid black;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+.card:hover{
+    box-shadow:0 0 10px #999;
+}
+img.pic{
+    border: 3px solid darkgrey;
+    width:100px;
+    height:100px;
+    margin-top: 25px;
+    margin-left: 30px;
+    margin-right: 30px;
+    float: left;
+    transition: transform .5s;
+}
+img.pic:hover{
+    transform: scale(2.0); 
+}
+.button {
+  background-color: #e7e7e7;
+  border: none;
+  color: black;
+  padding: 7px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  border-radius: 5px;
+}
+.button:hover {
+    color: white;
+    background-color: #4CAF50;
+}
+select {
+  text-align: center;
+  text-align-last: center;
+}
+input[type="NUMBER"]{
+    width: 10%;
+}
+</style>
+</HEAD>
+<BODY>
+    <p class="center"><img id="ebayimg" src="/static/Youtube_icon.png" alt=""></a><b>&nbsp;SEARCH</b></p>
+	<FORM id="myForm" onsubmit="makeRequest(); return false">
+		<table>
+		  <tr>
+		    <td><b>Key Words<span class="red-star">*</span>: </b><INPUT NAME="keywords" ID="keywords" TYPE="text" SIZE=20 required></td>
+		  </tr>
+		  <tr>
+		    <td><b>Sort By:</b> <SELECT NAME="sortby" ID="sortby">
+		    	<OPTION> Name</OPTION>
+		    	<OPTION> Views</OPTION>
+		    	<OPTION> Likes</OPTION>
+		    	<OPTION> Comment Number</OPTION></SELECT>
+		    	</td>
+		  </tr>
+		  <tr>
+		    <td><input type="button" onclick="myFunction()" value="Clear" class="button">
+		    	<INPUT TYPE="submit" VALUE="Search" class="button">  </td>
+		  </tr>
+		</table>
+    </FORM>
+	<div ID="counter"></div>
+    <div ID="result_num" style="font-size: 25px; font-weight:  ; text-align: center"> </div> 
+    <br>
+    <hr ID="line" style="width:850px; margin:auto; display:none">
+    <br>
+    <Fieldset class="card" ID="f0" style="display:none">
+        <img class="pic" ID="image0">
+        <div style="display: inline-block">
+        <br>
+        <a ID="title0">title</a>
+        <br>
+        <p ID="channel0">channel</p>
+        <p ID="views0">viewsandlikes</p>
+        <p ID="comment0">comment</p>
+        <p ID="category0">category</p>
+        <p ID="otherchannel0">other channel</p>
+        </div>
+    </Fieldset>
+    <Fieldset class="card" ID="f1" style="display:none">
+        <img class="pic" ID="image1">
+        <div style="display: inline-block">
+        <br>
+        <a ID="title1">title</a>
+        <br>
+        <p ID="channel1">channel</p>
+        <p ID="views1">viewsandlikes</p>
+        <p ID="comment1">comment</p>
+        <p ID="category1">category</p>
+        <p ID="otherchannel1">other channel</p>
+        </div>
+    </Fieldset>
+    <Fieldset class="card" ID="f2" style="display:none">
+        <img class="pic" ID="image2">
+        <div style="display: inline-block">
+        <br>
+        <a ID="title2">title</a>
+        <br>
+        <p ID="channel2">channel</p>
+        <p ID="views2">viewsandlikes</p>
+        <p ID="comment2">comment</p>
+        <p ID="category2">category</p>
+        <p ID="otherchannel2">other channel</p>
+        </div>
+    </Fieldset>
+    <Fieldset class="card" ID="f3" style="display:none">
+        <img class="pic" ID="image3">
+        <div style="display: inline-block">
+        <br>
+        <a ID="title3">title</a>
+        <br>
+        <p ID="channel3">channel</p>
+        <p ID="views3">viewsandlikes</p>
+        <p ID="comment3">comment</p>
+        <p ID="category3">category</p>
+        <p ID="otherchannel3">other channel</p>
+        </div>
+    </Fieldset>
+    <Fieldset class="card" ID="f4" style="display:none">
+        <img class="pic" ID="image4">
+        <div style="display: inline-block">
+        <br>
+        <a ID="title4">title</a>
+        <br>
+        <p ID="channel4">channel</p>
+        <p ID="views4">viewsandlikes</p>
+        <p ID="comment4">comment</p>
+        <p ID="category4">category</p>
+        <p ID="otherchannel4">other channel</p>
+        </div>
+    </Fieldset>
+    <Fieldset class="card" ID="f5" style="display:none">
+        <img class="pic" ID="image5">
+        <div style="display: inline-block">
+        <br>
+        <a ID="title5">title</a>
+        <br>
+        <p ID="channel5">channel</p>
+        <p ID="views5">viewsandlikes</p>
+        <p ID="comment5">comment</p>
+        <p ID="category5">category</p>
+        <p ID="otherchannel5">other channel</p>
+        </div>
+    </Fieldset>
+    <Fieldset class="card" ID="f6" style="display:none">
+        <img class="pic" ID="image6">
+        <div style="display: inline-block">
+        <br>
+        <a ID="title6">title</a>
+        <br>
+        <p ID="channel6">channel</p>
+        <p ID="views6">viewsandlikes</p>
+        <p ID="comment6">comment</p>
+        <p ID="category6">category</p>
+        <p ID="otherchannel6">other channel</p>
+        </div>
+    </Fieldset>
+    <Fieldset class="card" ID="f7" style="display:none">
+        <img class="pic" ID="image7">
+        <div style="display: inline-block">
+        <br>
+        <a ID="title7">title</a>
+        <br>
+        <p ID="channel7">channel</p>
+        <p ID="views7">viewsandlikes</p>
+        <p ID="comment7">comment</p>
+        <p ID="category7">category</p>
+        <p ID="otherchannel7">other channel</p>
+        </div>
+    </Fieldset>
+    <Fieldset class="card" ID="f8" style="display:none">
+        <img class="pic" ID="image8">
+        <div style="display: inline-block">
+        <br>
+        <a ID="title8">title</a>
+        <br>
+        <p ID="channel8">channel</p>
+        <p ID="views8">viewsandlikes</p>
+        <p ID="comment8">comment</p>
+        <p ID="category8">category</p>
+        <p ID="otherchannel8">other channel</p>
+        </div>
+    </Fieldset>
+    <Fieldset class="card" ID="f9" style="display:none">
+        <img class="pic" ID="image9">
+        <div style="display: inline-block">
+        <br>
+        <a ID="title9">title</a>
+        <br>
+        <p ID="channel9">channel</p>
+        <p ID="views9">viewsandlikes</p>
+        <p ID="comment9">comment</p>
+        <p ID="category9">category</p>
+        <p ID="otherchannel9">other channel</p>
+        </div>
+    </Fieldset>
+    <center><button class="button" ID="show" onclick="show()" style="visibility:hidden">Show More</button></center>
+	<script>
+        var c;
+        function myFunction() {
+            document.getElementById("myForm").reset();
+            for(j=0;j<10; j++){
+                    document.getElementById("f"+j.toString()).style.display = "none"
+                }
+            document.getElementById("show").style.visibility = "hidden"
+            document.getElementById("line").style.display = "none";
+            document.getElementById("result_num").innerHTML = "";
+        }
+        function show(){
+            if(document.getElementById("f3").style.display == "none"){
+                if(c < 10){
+                    for(j=0; j<c; j++){
+                        document.getElementById("f"+j.toString()).style.display = "block"
+                        } 
+                }   
+                else{
+                    for(j=0; j<10; j++){
+                        document.getElementById("f"+j.toString()).style.display = "block";
+                    } 
+                }
+                document.getElementById("show").innerHTML = "Show Less";
+                document.getElementById('f9').scrollIntoView();
+            }
+            else{
+                for(j=3;j<10; j++){
+                    document.getElementById("f"+j.toString()).style.display = "none"
+                }
+                document.getElementById("show").innerHTML = "Show More";
+                document.getElementById('ebayimg').scrollIntoView();
+            }
+            
+        }
+		function makeRequest(){
+			let keyword = document.getElementById("keywords").value; //get this from form
+			let url = "/second?keywords="+keyword
+			if (document.getElementById("sortby").value == "Name" ){
+				url+="&sortby=video_title"
+			}
+			else if (document.getElementById("sortby").value == "Views"){
+				url+="&sortby=views"
+			}
+			else if (document.getElementById("sortby").value == "Likes"){
+				url+="&sortby=likes"
+			}
+			else if (document.getElementById("sortby").value == "Comment Number"){
+				url+="&sortby=comment_count"
+			}
+			fetch(url)
+				.then(response => response.json())
+				//process the data
+				.then(jsonData=>{
+					items = jsonData
+                    document.getElementById("line").style.display = "block"
+                    //document.getElementById("result_num").innerHTML = items[0].thumbnail_link
+                    i = 0;
+                    c = 10;
+                    while(i<c){
+                        document.getElementById("image" + i.toString()).src = items[i].thumbnail_link;
+                        document.getElementById("title" + i.toString()).innerHTML = items[i].video_title;
+                        document.getElementById('channel' + i.toString()).innerHTML = "Channel: " + items[i].channel_title;
+                        document.getElementById('views'+ i.toString()).innerHTML = "Views: " + items[i].views + ", Likes: " + items[i].likes;
+                        document.getElementById('comment' + i.toString()).innerHTML = "Comment Number: " + items[i].comment_count;
+                        document.getElementById('category' + i.toString()).innerHTML = "Category: " + items[i].category_name;
+                        document.getElementById('otherchannel' + i.toString()).innerHTML = "Most Popular Channel in Category: " + items[i].title
+                        i += 1;
+                    }
+                    for(j=0; j<3; j++){
+                        document.getElementById("f"+j.toString()).style.display = "block"
+                    }
+                    if(c > 3){
+                        document.getElementById("show").style.visibility = "visible";
+                    }
+                })
+				.catch(function(err){alert(err)});
+		}
+	</script>
+</BODY>
+</HTML>
